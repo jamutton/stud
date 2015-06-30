@@ -119,8 +119,7 @@ int config_param_val_pid_file (char *str, char *dst) {
     int len = (str == NULL) ? 0 : strlen(str);
     memset(dst, '\0', PATH_MAX);
     if (len < 1) {
-        char *name = stud_instance_name(NULL);
-        if (name == NULL || strlen(name) < 1) name = "stud";
+        char *name = "stud";
         snprintf(dst, PATH_MAX, "%s/%s.pid", pid_dir_get(), name);
     } else {
         strncat(dst, str, PATH_MAX);
